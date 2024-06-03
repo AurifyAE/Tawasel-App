@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="./lawasel.png">
+  <link rel="icon" type="image/png" href="./lawasel.png">
+  <title>
+    Tawasel
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <!-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+    integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <link href="/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0px 400px;
+      font-family: "arial", heletica, sans-serif;
+      font-size: 24px;
+      background-image: url('./95071607_10142703.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      -webkit-animation: 20s linear 0s normal none infinite animate;
+      -moz-animation: 20s linear 0s normal none infinite animate;
+      -ms-animation: 20s linear 0s normal none infinite animate;
+      -o-animation: 20s linear 0s normal none infinite animate;
+      animation: 20s linear 0s normal none infinite animate;
+      height: 100vh;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo .profile-pic {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 350px;
+      margin-top: 50px;
+    }
+
+    .logo .support {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo .support p {
+      font-size: 35px;
+      margin-bottom: 0px;
+      color: #fff;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(250, 250, 250, 0.9);
+      width: 320px;
+      height: 235px;
+      margin: 7px;
+      border-radius: 15px;
+      padding: 20px;
+      padding-top: 25px;
+    }
+
+    .card .icon {
+      font-size: 40px;
+      color: white;
+      background-color: #450C1B;
+      border-radius: 50%;
+      padding: 12px;
+    }
+
+    p {
+      font-size: 35px;
+      font-weight: 600;
+    }
+
+    .card p:last-child {
+      font-size: 32px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      outline: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+      body {
+        padding: 0px 0px;
+      }
+
+      .logo img {
+        width: 130px;
+        margin-top: 50px;
+      }
+
+      .logo .support p {
+        font-size: 20px;
+      }
+
+      .card {
+        width: 140px;
+        height: 135px;
+        padding: 10px;
+      }
+
+      .card .icon {
+        font-size: 20px;
+        color: white;
+        background-color: #450C1B;
+        border-radius: 50%;
+        padding: 12px;
+      }
+
+      p {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .card p:last-child {
+        font-size: 12px;
+      }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+      body {
+        padding: 0px 0px;
+      }
+
+      .logo img {
+        width: 180px;
+        margin-top: 50px;
+      }
+
+      .logo .support p {
+        font-size: 25px;
+      }
+
+      .card {
+        width: 175px;
+        height: 155px;
+        padding: 10px;
+      }
+
+      .card .icon {
+        font-size: 25px;
+        color: white;
+        background-color: #450C1B;
+        border-radius: 50%;
+        padding: 12px;
+      }
+
+      p {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .card p:last-child {
+        font-size: 17px;
+      }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+      body {
+        padding: 0px 0px;
+      }
+
+      .logo img {
+        width: 250px;
+        margin-top: 50px;
+      }
+
+      .logo .support p {
+        font-size: 30px;
+      }
+
+      .card {
+        width: 215px;
+        height: 185px;
+        padding: 10px;
+      }
+
+      .card .icon {
+        font-size: 30px;
+        color: white;
+        background-color: #450C1B;
+        border-radius: 50%;
+        padding: 12px;
+      }
+
+      p {
+        font-size: 25px;
+        font-weight: 600;
+      }
+
+      .card p:last-child {
+        font-size: 22px;
+      }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+      body {
+        padding: 0px 0px;
+      }
+
+      .logo img {
+        width: 300px;
+        margin-top: 50px;
+      }
+
+      .logo .support p {
+        font-size: 35px;
+      }
+
+      .card {
+        width: 320px;
+        height: 235px;
+        padding: 20px;
+      }
+
+      .card .icon {
+        font-size: 40px;
+        color: white;
+        background-color: #450C1B;
+        border-radius: 50%;
+        padding: 12px;
+      }
+
+      p {
+        font-size: 35px;
+        font-weight: 600;
+      }
+
+      .card p:last-child {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logo">
+    <div class="profile-pic">
+      <img src="./lawa.png" alt="">
+    </div>
+    <div class="support">
+      <p>Customer Support</p>
+      <p>24 / 7 Support</p>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row g-2">
+      <div class="col-6">
+        <a href="tel:+97142594514">
+          <div class="card">
+            <i class="fa-solid fa-phone icon"></i>
+            <p>Call Us</p>
+            <p>+971 4259 4514</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="https://wa.me/+971545822229">
+          <div class="card">
+            <i class="fa-brands fa-whatsapp icon"></i>
+            <p>Whatsapp</p>
+            <p>+971 5 4582 2229</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="mailto:info@misnagold.com">
+          <div class="card">
+            <i class="fa-regular fa-envelope icon"></i>
+            <p>Mail</p>
+            <p>Drop us a line</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="https://maps.app.goo.gl/pJkWUsuqFerFhF8T6" target="_blank">
+          <div class="card">
+            <i class="fas fa-location-arrow icon"></i>
+            <p>Our Address</p>
+            <p>Reach us at</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
+  <script type="module" src="./config/db.js"></script>
+  <script type="module" src="./assets/js/core/dashboardDB.js"></script>
+  <script type="module" src="./assets/js/core/spotrateDB.js"></script>
+  <script type="module" defer src="./assets/js/core/displayNews.js"></script>
+  <script type="module" defer src="./assets/js/core/aurifyview2.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+
+
+
+
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+  <!-- Date & Time -->
+  <script>
+    `use strict`;
+    function refreshTime() {
+      const timeDisplay = document.getElementById("time");
+      const dateString = new Date().toLocaleString();
+      const formattedString = dateString.replace(", ", " - ");
+      timeDisplay.textContent = formattedString;
+    }
+    setInterval(refreshTime, 1000);
+
+  </script>
+
+  <!-- <script>
+    // Check if the screen width is below a certain threshold (e.g., 1000 pixels)
+    if (window.innerWidth > 900) {
+      // Redirect users from mobile and tablet devices to a different page or show an error message
+      window.location.href = '../../../pages/error.html'; // Redirect to a mobile error page
+    }
+  </script> -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="./lawasel.png">
+  <link rel="icon" type="image/png" href="./lawasel.png">
+  <title>
+    Tawasel
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <!-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+    integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <link href="/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0px 400px;
+      font-family: "arial", Helvetica, sans-serif;
+      font-size: 24px;
+      background-image: url('./95071607_10142703.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      /* Prevent background from scrolling */
+      -webkit-animation: 20s linear 0s normal none infinite animate;
+      -moz-animation: 20s linear 0s normal none infinite animate;
+      -ms-animation: 20s linear 0s normal none infinite animate;
+      -o-animation: 20s linear 0s normal none infinite animate;
+      animation: 20s linear 0s normal none infinite animate;
+      height: 100vh;
+      /* Adjusted to 100vh for full viewport height */
+      width: 100%;
+    }
+
+    .logo {
+      width: 350px;
+      margin-top: 50px;
+    }
+
+    .date-time {
+      color: #fff;
+      font-size: 30px;
+    }
+
+    .symbols {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: #791537;
+      width: 100%;
+      padding: 10px;
+      border-radius: 15px;
+      height: 60px;
+    }
+
+    .symbols .buy-sell-label {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .symbols .buy-sell-label p {
+      color: #fff;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .data {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: #fff;
+      opacity: 80%;
+      width: 100%;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+
+    .data .label {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .data .label p {
+      font-size: 35px;
+      font-weight: 600;
+      color: black;
+    }
+
+    .data .buy-sell .input-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 35px;
+      font-weight: 600;
+      padding: 15px;
+    }
+
+    .data .buy-sell label {
+      font-size: 25px;
+    }
+
+    table {
+      width: 100%;
+      margin: 30px 0px;
+    }
+
+    table thead tr {
+      background-color: #791537;
+    }
+
+    table thead tr th {
+      font-size: 22px;
+      color: #fff;
+      padding: 10px;
+    }
+
+    table tr {
+      background-color: #f9f9f9;
+      /* Light gray background for odd rows */
+    }
+
+    table tbody tr:nth-child(even) {
+      background-color: #e6e6e6;
+      /* Dark gray background for even rows */
+    }
+
+    table tbody tr td {
+      font-size: 22px;
+      font-weight: 600;
+      padding: 10px;
+      color: black;
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+      body {
+        padding: 0px 10px;
+      }
+
+      .logo {
+        width: 130px;
+        margin-top: 50px;
+      }
+
+      .date-time {
+        font-size: 18px;
+      }
+
+      .symbols {
+        height: 50px;
+      }
+
+      .symbols .buy-sell-label .icon,
+      .symbols .buy-sell-label p {
+        font-size: 18px;
+      }
+
+      .symbols .buy-sell-label .icon {
+        margin-bottom: 6px;
+      }
+
+      .data .label p,
+      .data .label h5 {
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .data .buy-sell .input-box {
+        font-size: 20px;
+        padding: 10px;
+      }
+
+      .data .buy-sell label {
+        font-size: 15px;
+      }
+
+      table {
+        margin: 30px -10px;
+        width: 100%;
+      }
+
+      table thead tr th {
+        font-size: 16px;
+        padding: 8px;
+      }
+
+      table tbody tr td {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 8px;
+      }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+      body {
+        padding: 0px 20px;
+      }
+
+      .logo {
+        width: 180px;
+        margin-top: 50px;
+      }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+      body {
+        padding: 0px 50px;
+      }
+
+      .logo {
+        width: 220px;
+        margin-top: 50px;
+      }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+      body {
+        padding: 0px 100px;
+      }
+
+      .logo {
+        width: 280px;
+        margin-top: 50px;
+      }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+      body {
+        padding: 0px 400px;
+      }
+
+      .logo {
+        width: 350px;
+        margin-top: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <div class="col-lg-12 d-flex justify-content-center">
+      <img class="logo" src="./lawa.png" alt="">
+    </div>
+    <!-- Navbar -->
+    <nav class="d-flex justify-content-center mt-2">
+      <div id="navbar">
+        <ul class="navbar-nav  ">
+          <li class="nav-item d-flex align-items-center">
+            <div class="btn btn-outline btn-sm" target="_blank"><span id='time' class="date-time"></span></div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid pt-0 mt-3">
+      <div class="row">
+        <div class="symbols">
+          <div></div>
+          <div class="buy-sell-label">
+            <p>BUY</p>
+            <div>
+              <i class="fa-solid fa-dollar-sign icon" style="color: #fff;"></i>
+            </div>
+          </div>
+          <div class="buy-sell-label">
+            <p>SELL</p>
+            <div>
+              <i class="fa-solid fa-dollar-sign icon" style="color: #fff;"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- GOLD -->
+        <div class="data">
+          <div class="label">
+            <p>Gold</p>
+            <h5 style="color: black;">oz</h5>
+          </div>
+          <div class="buy-sell">
+            <div class="form-control input-box" id="goldInputLow"></div>
+            <div>
+              <i class="fa-solid fa-caret-down icon" style="color: red;"></i>
+              <label id="lowLabelGold">0</label>
+            </div>
+          </div>
+          <div class="buy-sell">
+            <div class="form-control input-box" id="goldInputHigh"></div>
+            <div>
+              <i class="fa-solid fa-caret-up icon" style="color: green;"></i>
+              <label id="highLabelGold">0</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- silver -->
+        <div class="data">
+          <div class=" label">
+            <p>Silver</p>
+            <h5 style="color: black;">oz</h5>
+          </div>
+          <div class="buy-sell">
+            <div class="form-control input-box" id="silverInputLow"></div>
+            <div>
+              <i class="fa-solid fa-caret-down icon" style="color: red;"></i>
+              <label id="lowLabelSilver">0</label>
+            </div>
+          </div>
+          <div class="buy-sell">
+            <div class="form-control input-box" id="silverInputHigh"></div>
+            <div>
+              <i class="fa-solid fa-caret-up icon" style="color: green;"></i>
+              <label id="highLabelSilver">0</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <table>
+        <thead style="margin-bottom: 0px;" class="col-md-12">
+          <tr class="col-md-12" style="font-size: 12px;">
+            <th class="col-md-3" colspan="2">COMMODITY</th>
+            <th class="col-md-3">UNIT</th>
+            <th class="col-md-3">BUY (<span id="currencySymbol">AED</span>)</th>
+            <th class="col-md-3">SELL (<span id="currencySymbol">AED</span>)</th>
+          </tr>
+          <tr style="height: 8px;background-color: transparent;"></tr>
+        </thead>
+
+        <tbody id="tableBodyTV">
+          <!-- Table body content will be dynamically updated here -->
+        </tbody>
+      </table>
+
+    </div>
+  </main>
+
+
+  <div class="rate-card" style="display: none;">
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="gold-card">
+            <img src="./assets/img/gold.png" alt="">
+            <h3>Gold</h3>
+          </div>
+          <p id="goldRate"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="silver-card">
+            <img src="./assets/img/silver.png" alt="">
+            <h3>Silver</h3>
+          </div>
+          <p id="silverRate"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--   Core JS Files   -->
+  <script src="https://unpkg.com/metaapi.cloud-sdk"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
+  <script type="module" src="./config/db.js"></script>
+  <script type="module" src="./assets/js/core/dashboardDB.js"></script>
+  <script type="module" src="./assets/js/core/spotrateDB.js"></script>
+  <script type="module" defer src="./assets/js/core/aurifyview2.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+
+  <script>
+    var ctx = document.getElementById("chart-bars").getContext("2d");
+
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Sales",
+          tension: 0.4,
+          borderWidth: 0,
+          borderRadius: 4,
+          borderSkipped: false,
+          backgroundColor: "#fff",
+          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+          maxBarThickness: 6
+        },],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+            },
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
+              padding: 15,
+              font: {
+                size: 14,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+              color: "#fff"
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false
+            },
+            ticks: {
+              display: false
+            },
+          },
+        },
+      },
+    });
+
+
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+    new Chart(ctx2, {
+      type: "line",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Gold",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#cb0c9f",
+          borderWidth: 3,
+          backgroundColor: gradientStroke1,
+          fill: true,
+          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+          maxBarThickness: 6
+
+        },
+        {
+          label: "Silver",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#3A416F",
+          borderWidth: 3,
+          backgroundColor: gradientStroke2,
+          fill: true,
+          data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+          maxBarThickness: 6
+        },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: '#b2b9bf',
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#b2b9bf',
+              padding: 20,
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+  </script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+  <!-- Date & Time -->
+  <script>
+    `use strict`;
+    function refreshTime() {
+      const timeDisplay = document.getElementById("time");
+      const dateString = new Date().toLocaleString();
+      const formattedString = dateString.replace(", ", " - ");
+      timeDisplay.textContent = formattedString;
+    }
+    setInterval(refreshTime, 1000);
+
+  </script>
+  <!-- <script>
+    // Check if the screen width is below a certain threshold (e.g., 1000 pixels)
+    if (window.innerWidth > 900) {
+      // Redirect users from mobile and tablet devices to a different page or show an error message
+      window.location.href = '../../../pages/error.html'; // Redirect to a mobile error page
+    }
+  </script> -->
+
+</body>
+
+</html>
